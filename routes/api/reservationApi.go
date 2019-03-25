@@ -1,8 +1,8 @@
 package api
 
 import (
-	"le-refuge-back/controllers"
-	"le-refuge-back/middlewares"
+	"refuge/controllers"
+	"refuge/middlewares"
 
 	"github.com/labstack/echo"
 )

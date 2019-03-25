@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"le-refuge-back/controllers/actions"
+	"refuge/controllers/actions"
 
 	"github.com/labstack/echo"
 )

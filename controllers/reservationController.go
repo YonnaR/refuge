@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"le-refuge-back/models"
+	"refuge/models"
 
 	"github.com/labstack/echo"
 )

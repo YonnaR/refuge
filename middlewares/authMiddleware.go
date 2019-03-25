@@ -2,7 +2,7 @@ package middlewares
 
 import (
 	"fmt"
-	"le-refuge-back/controllers/actions"
+	"refuge/controllers/actions"
 	"os"
 
 	jwt "github.com/dgrijalva/jwt-go"

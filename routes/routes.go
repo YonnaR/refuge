@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"le-refuge-back/routes/api"
+	"refuge/routes/api"
 
 	"github.com/labstack/echo"
 )

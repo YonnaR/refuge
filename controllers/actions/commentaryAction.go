@@ -1,7 +1,7 @@
 package actions
 
 import (
-	"le-refuge-back/models"
+	"refuge/models"
 	"time"
 
 	"github.com/labstack/echo"

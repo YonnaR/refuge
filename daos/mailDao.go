@@ -1,7 +1,7 @@
 package daos
 
 import (
-	"le-refuge-back/models"
+	"refuge/models"
 
 	"gopkg.in/mgo.v2/bson"
 )

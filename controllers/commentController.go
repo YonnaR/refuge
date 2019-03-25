@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"le-refuge-back/daos"
-	"le-refuge-back/models"
+	"refuge/daos"
+	"refuge/models"
 	"time"
 
 	"github.com/labstack/echo"

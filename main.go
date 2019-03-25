@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"le-refuge-back/controllers"
-	"le-refuge-back/controllers/actions"
-	"le-refuge-back/daos"
-	"le-refuge-back/models"
-	"le-refuge-back/routes"
-	"le-refuge-back/utils"
 	"os"
+	"refuge/controllers"
+	"refuge/controllers/actions"
+	"refuge/daos"
+	"refuge/models"
+	"refuge/routes"
+	"refuge/utils"
 	"time"
 
 	"github.com/labstack/echo"
@@ -73,7 +73,7 @@ func main() {
 		e.Use(middleware.Logger())
 
 		routes.SetRoutes(e)
-		e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+		e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 	}
 
 }

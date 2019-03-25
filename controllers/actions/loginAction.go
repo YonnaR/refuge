@@ -1,8 +1,8 @@
 package actions
 
 import (
-	"le-refuge-back/daos"
-	"le-refuge-back/utils"
+	"refuge/daos"
+	"refuge/utils"
 	"os"
 	"time"
 
