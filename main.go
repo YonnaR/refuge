@@ -54,6 +54,12 @@ func main() {
 		/* redirect to https */
 		e.Pre(middleware.HTTPSWWWRedirect())
 
+		/* Launch http server */
+		go func(c *echo.Echo) {
+			e.Logger.Fatal(e.Start(":80"))
+		}(e)
+
+		/* Atta */
 		routes.SetRoutes(e)
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
 	} else {
