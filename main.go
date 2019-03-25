@@ -61,7 +61,7 @@ func main() {
 
 		/* Atta */
 		routes.SetRoutes(e)
-		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS_PORT")))
+		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
 	} else {
 
 		/* Middleware */
