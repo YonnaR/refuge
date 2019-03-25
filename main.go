@@ -43,5 +43,5 @@ func main() {
 	e.Use(middleware.Logger())
 
 	routes.SetRoutes(e)
-	e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+	e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
 }
