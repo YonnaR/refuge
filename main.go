@@ -38,10 +38,36 @@ func main() {
 	fmt.Println(time.Now())
 	e := echo.New()
 
-	e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
-	e.Use(middleware.Recover())
-	e.Use(middleware.Logger())
+	if os.Getenv("prod") == "true" {
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com")
 
-	routes.SetRoutes(e)
-	e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
+		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
+
+		/* Middleware */
+
+		/* recover */
+		e.Use(middleware.Recover())
+
+		/* loger */
+		e.Use(middleware.Logger())
+
+		/* redirect to https */
+		e.Pre(middleware.WWWRedirect())
+
+		routes.SetRoutes(e)
+		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
+	} else {
+
+		/* Middleware */
+
+		/* recover */
+		e.Use(middleware.Recover())
+
+		/* loger */
+		e.Use(middleware.Logger())
+
+		routes.SetRoutes(e)
+		e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+	}
+
 }
