@@ -56,12 +56,12 @@ func main() {
 
 		/* Launch http server */
 		go func(c *echo.Echo) {
-			e.Logger.Fatal(e.Start(":80"))
+			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
 
 		/* Atta */
 		routes.SetRoutes(e)
-		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
+		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS_PORT")))
 	} else {
 
 		/* Middleware */
