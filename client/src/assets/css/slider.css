@@ -1,0 +1,10 @@
+.img-carousel{
+    width:750px;
+    height:450px;
+}
+#gites{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

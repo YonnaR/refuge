@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        .container{
+            padding: 25px;
+            background-color: bisque;
+            font-size: 130%;
+        }
+        .banner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center
+        }
+        img{
+            text-align: center;
+            margin: auto; 
+        }
+        h1{
+            font-family: 'Calibri';
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 90px 10px 90px;
+        }
+        p{
+            font-family: 'Calibri';
+
+        }
+        .citation{
+            font-style: italic;
+            background-color: rgb(163, 155, 155 , 0.7);
+            text-align: right;
+            padding: 5px;
+
+        }
+        .link-div{
+            margin: auto;
+            text-align: right;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+        }
+        .button{
+            text-align: center;
+            border: 1px solid grey;
+            border-radius: 6px;
+            background-color: mediumblue;
+            font-weight: bold;
+            padding: 5px;
+            color: white;
+        }
+        .button label{
+            text-decoration: none;
+            color: white;
+        }
+        small{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <br>
+        <br>
+        <div class="banner">
+            <img src="http://refugehulman.com/img/logo.8e52f348.png" alt="Logo">
+        </div>
+        <div>
+            <h1>Félicitation, un nouveau commentaire posté sur le site par {{.AuthorName}} le {{.Date}} </h1>
+            <p>Cet utilisateur vous a laissé la note de : <strong>{{.Note}}/5 </strong></p>
+            <p>Le commentaire qu'il vous a laissé est le suivant : </p>
+            <p class="citation">{{.Message}}</p>
+            <div class="link-div">
+                <a href="http://www.refugehulman.com/" class="button">
+                    <label>
+                        Voir le site
+                    </label>
+                </a>
+                <a href="http://www.refugehulman.com/admin" class="button">
+                    <label>
+                        Gérer le site
+                    </label>
+                </a>
+            </div>
+            <br>
+            <br>
+            <small>Ce message a été généré automatiquement avec beaucoup d'amour. Merci de ne pas y répondre.</small>
+        </div>
+    </div>
+</body>
+</html>
