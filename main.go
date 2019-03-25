@@ -52,7 +52,7 @@ func main() {
 		e.Use(middleware.Logger())
 
 		/* redirect to https */
-		e.Pre(middleware.WWWRedirect())
+		e.Pre(middleware.HTTPSRedirect())
 
 		routes.SetRoutes(e)
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("PORT")))
