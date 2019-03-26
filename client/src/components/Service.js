@@ -4,106 +4,106 @@ export default class Service extends Component {
   render() {
     return (
         <section id="our-services">
-            <div class="container">
-            <div class="desc">
-                <div class="heading">
+            <div className="container">
+            <div className="desc">
+                <div className="heading">
                 <h1>Nous vous proposons...</h1>
                 </div>
-                <div class="text">
+                <div className="text">
                 <p>Afin de vous proposer la meilleur expérience possible, nous mettons à votre disposition les services suivants:</p>
                 </div>
             </div>
-            <div class="services">
+            <div className="services">
         
-                <div class="column" id="column-1">
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-truck icons ">
+                <div className="column" id="column-1">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-truck icons ">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
                             LIVRAISON/TRAITEUR 
                         </p>                       
                         </div>
                     </div>
-                    <div class="service hidden">
-                        <div class="service-desc">
-                        <i class="service-icon">
+                    <div className="service hidden">
+                        <div className="service-desc">
+                        <i className="service-icon">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
             
                         </p>
                         </div>
                     </div>
-                    <div class="service hidden">
-                        <div class="service-desc">
-                        <i class="service-icon">
+                    <div className="service hidden">
+                        <div className="service-desc">
+                        <i className="service-icon">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
             
                         </p>
                         </div>
                     </div>
                 </div>
-                <div class="column" id="column-2">
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-birthday-cake">
+                <div className="column" id="column-2">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-birthday-cake">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
                             RÉCEPTION
                         </p>
                         </div>
                     </div>
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-swimming-pool"></i>
-                        <p class="service-txt">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-swimming-pool"></i>
+                        <p className="service-txt">
                             PISCINE
                         </p>
                         </div>
                     </div>
-                    <div class="service hidden">
-                        <div class="service-desc">
-                        <i class="service-icon">
+                    <div className="service hidden">
+                        <div className="service-desc">
+                        <i className="service-icon">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
             
                         </p>
                         </div>
                     </div>
                 </div>
-                <div class="column" id="column-2">
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-building">
+                <div className="column" id="column-2">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-building">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
                             HÉBERGEMENT/GÎTES
                         </p>
                         </div>
                     </div>
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-utensils">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-utensils">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
                             RESTAURATION
                         </p>
                         </div>
                     </div>
-                    <div class="service">
-                        <div class="service-desc">
-                        <i class="service-icon fas fa-sun">
+                    <div className="service">
+                        <div className="service-desc">
+                        <i className="service-icon fas fa-sun">
             
                         </i>
-                        <p class="service-txt">
+                        <p className="service-txt">
                             SOLEIL
                         </p>
                         </div>
