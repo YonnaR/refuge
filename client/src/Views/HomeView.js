@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Welcome from '../components/Welcome';
-import Gites from '../components/Gites';
 import Service from '../components/Service';
 import Staff from '../components/Staff';
 import Contact from '../components/Contact';
@@ -12,7 +11,6 @@ export default class HomeView extends Component {
         <div className="container-fluid">
             <Header/>
             <Welcome/>
-            <Gites/>
             <Service/>
             <Staff/>
             <Contact/>

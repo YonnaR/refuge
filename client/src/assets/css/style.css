@@ -829,6 +829,14 @@ footer .social-grid {
     text-decoration: none;
     transition: initial;
 }
+.footer-contact-info>div {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 8px 0;
+    position: relative;
+    padding-left: 40px;
+}
 .single-blog-footer .widget li {
     display: block;
     margin: 5px 0 0;

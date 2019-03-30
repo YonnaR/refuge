@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"refuge/controllers"
 	"refuge/controllers/actions"
@@ -9,7 +8,6 @@ import (
 	"refuge/models"
 	"refuge/routes"
 	"refuge/utils"
-	"time"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -22,10 +20,11 @@ var (
 
 func init() {
 	utils.LoadEnv()
-	connectDb()
 	dbDao.Server = os.Getenv("DB_SERVER")
 	dbDao.Database = os.Getenv("DB_NAME")
 	models.Dialer = utils.GetDialer()
+	connectDb()
+
 }
 
 func connectDb() {
@@ -35,44 +34,43 @@ func connectDb() {
 }
 
 func main() {
-	fmt.Println(time.Now())
+
+	/* App instance */
 	e := echo.New()
 
+	/* loger */
+	e.Use(middleware.Logger())
+
+	/* Bind routes */
+	routes.SetRoutes(e)
+
+	/* If prod is true in .env file */
 	if os.Getenv("prod") == "true" {
+
+		/* dns autorisation */
 		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com")
 
+		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
-		/* Middleware */
-
-		/* recover */
-		e.Use(middleware.Recover())
-
-		/* loger */
-		e.Use(middleware.Logger())
-
-		/* redirect to https */
-		e.Pre(middleware.HTTPSWWWRedirect())
-
-		/* Launch http server */
+		/* Http server */
 		go func(c *echo.Echo) {
+			/* https redirection */
+			e.Pre(middleware.HTTPSWWWRedirect())
+
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
 
-		/* Atta */
-		routes.SetRoutes(e)
+		/* https redirection */
+		e.Pre(middleware.HTTPSWWWRedirect())
+
+		/* Https server */
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
 	} else {
-
-		/* Middleware */
-
-		/* recover */
-		e.Use(middleware.Recover())
 
 		/* loger */
 		e.Use(middleware.Logger())
 
-		routes.SetRoutes(e)
 		e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 	}
 

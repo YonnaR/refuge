@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReservationFormColumn from '../components/Forms/ReservationFormColum';
+import ReservationFormColumn from '../components/forms/ReservationFormColum';
 
 export default class ReservationView extends Component {
   render() {
