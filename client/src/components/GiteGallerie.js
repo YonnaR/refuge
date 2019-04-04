@@ -40,8 +40,9 @@ export default class componentName extends Component {
         } 
     render() {
         return (
-        <div>
-            <button onClick={this.toggleGallery}>Open photo gallery</button>
+        <div className="center">
+            <br/>
+            <button className="btn btn-primary" onClick={this.toggleGallery}>Voir la galerie</button>
             <ReactBnbGallery
                 show={this.state.galleryOpened}
                 photos={photos}

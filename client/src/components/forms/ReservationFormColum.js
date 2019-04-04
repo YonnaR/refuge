@@ -291,7 +291,7 @@ export default class ReservationFormColumn extends Component {
                         <div className="form-group">
                             <p>Fin <span>*</span></p>
                             <span className="icon-case">
-                                <i class="fas fa-calendar-alt"></i>
+                                <i className="fas fa-calendar-alt"></i>
                             </span>
                             <input 
                                 type="date" 

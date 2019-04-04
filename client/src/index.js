@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './assets/css/responsive.css';
 import './assets/css/style.css';
 import './assets/font-awesome/css/font-awesome.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

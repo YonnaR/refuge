@@ -78,7 +78,7 @@ func (res *Reservation) sendAdmin(data mailReservation) {
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", res.Mail)
-	m.SetAddressHeader("To", os.Getenv("ADMIN_MAIL"), "site www.refugehulman.com")
+	m.SetAddressHeader("To", os.Getenv("MAIL_USER"), "site www.refugehulman.com")
 	m.SetHeader("Subject", "Nouvelle Réservation sur le site")
 	m.SetBody("text/html", buf.String())
 
@@ -107,7 +107,7 @@ func (res *Reservation) sendUser(data mailReservation) {
 	}
 
 	m := gomail.NewMessage()
-	m.SetHeader("From", os.Getenv("ADMIN_MAIL"))
+	m.SetHeader("From", os.Getenv("MAIL_USER"))
 	m.SetAddressHeader("To", res.Mail, res.FirstName)
 	m.SetHeader("Subject", "Merci pour votre Réservation. Nous vous recontacterons très vite.")
 	m.SetBody("text/html", buf.String())

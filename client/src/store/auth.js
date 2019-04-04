@@ -7,7 +7,6 @@ export default class authStore {
             isAuth: false,
             token:"",
         })
-        console.log(this.isAuth)
     }
 
 }

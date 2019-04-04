@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Welcome from '../components/Welcome';
 import Service from '../components/Service';
 import Staff from '../components/Staff';
-import Contact from '../components/Contact';
 import Header from '../components/Header';
 
 export default class HomeView extends Component {
@@ -13,7 +12,6 @@ export default class HomeView extends Component {
             <Welcome/>
             <Service/>
             <Staff/>
-            <Contact/>
       </div>
     )
   }

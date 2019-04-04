@@ -8,6 +8,7 @@ import (
 	gomail "gopkg.in/gomail.v2"
 )
 
+/*GetDialer return gomail dialer for app mailing */
 func GetDialer() *gomail.Dialer {
 	port, err := strconv.Atoi(os.Getenv("SMTP_PORT"))
 	if err != nil {

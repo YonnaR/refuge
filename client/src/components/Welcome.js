@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../assets/css/modal.css'
+
 export default class Welcome extends Component {
     constructor(props){
         super(props);
@@ -65,7 +66,9 @@ export default class Welcome extends Component {
                     <p>Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
                     Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
                     une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>
-                    <button className="read-more" href="/" onClick={()=>this.handleModal(this.state.modalV)}>Voir plus</button>
+                    <div className="center">
+                        <button className="btn btn-primary" href="/" onClick={()=>this.handleModal(this.state.modalV)}>Voir plus</button>
+                    </div>
                 </div>
             </div>
         </div>
