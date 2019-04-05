@@ -18,17 +18,17 @@ export default class Staff extends Component {
                                 </div>
                                 <div className="col-md-3 col-sm-3 col-xs-3">
                                     <div className="staff-image">
-                                        <img className="img" src="/images/staff/papou.jpg"/>
+                                        <img className="img" alt="membre du staff papou" src="/images/staff/papou.jpg"/>
                                         <div className="overlay">
-                                            <a href="#" className="info">Georges HULMAN</a>
+                                            <a href="/#/" className="info">Georges HULMAN</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-3 col-sm-3 col-xs-3">
                                     <div className="staff-image">
-                                        <img className="img" src="/images/staff/mamou.jpg"/>
+                                        <img className="img" alt="membre du staff mamou" src="/images/staff/mamou.jpg"/>
                                         <div className="overlay">
-                                            <a href="#" className="info">Juliette HULMAN</a>
+                                            <a href="/#/" className="info">Juliette HULMAN</a>
                                         </div>
                                     </div>
                                 </div>

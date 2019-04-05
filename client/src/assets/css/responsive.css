@@ -7,6 +7,10 @@
 
 }
 @media(max-width: 1199px){
+    .subtitle{
+        padding: 10px;
+        text-align: justify;
+    }
     .logo {
         width: 450px;
     }

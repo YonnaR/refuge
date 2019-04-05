@@ -8,25 +8,30 @@ export default class Welcome extends Component {
             modalV:false
         }
     }
-    handleModal=(bool)=>{bool?this.setState({modalV:false}):this.setState({modalV:true})}
+    handleModal=()=>this.setState((prevState)=>{
+        return{
+            modalV:!prevState.modalV
+        }
+    })
   render() {
-      let modalS = this.state.modalV?"visible":"hidden";
+    const { modalV } = this.state;
     return (
         <section className="welcome-block">
-        <div style={{visibility:modalS}}>
-            <div className="modal-container"> 
-                <button className="close-modal-button button-danger" href="/" onClick={()=>this.handleModal(this.state.modalV)} ><i className="fas fa-times fa-2x red close-modal"></i></button>   
+ 
+            {modalV?<div className="modal-container"> 
+                <button className="close-modal-button button-danger" onClick={()=>this.handleModal()} ><i className="fas fa-times fa-2x red close-modal"></i></button>   
                 <div className="modal-area">
                     <div className="row">
                         <div className="col-md-12 col-sm-12 col-xs-12">
                             <div className="title-name">
-                                <h1>Marie-Galante</h1>
-                                <h5>Un REFUGE paradisiaque</h5>
+                                <h1 className="text-center">Marie-Galante</h1>
+                                <h5 className="text-center">Un REFUGE paradisiaque</h5>
                             </div>
                             <div className="single-blog-image">
                                 <img src="/images/excursion/banner1.jpg" className="banner-responsive" alt="web site banner"/>
                             </div>
-                            <div className="single-blog-desc">
+                            <div className="subtitle">
+                                <br/>
                                 <p>
                                     Marie-Galante, île de l'archipel de la Guadeloupe dans la mer des Antilles s'étend sur une superficie
                                     de 158 km². Sa forme ronde et aplatie lui doit le surnom de la Grande Galette. En la découvrant dans
@@ -37,7 +42,7 @@ export default class Welcome extends Component {
                                     Ses trois localités principales, Capesterre, Saint-Louis et son chef lieu Grand-bourg se déploient en bordure de mer.arie-Galante est aussi appelée l'île aux cent moulins. 
                                     En réalité, on dénombre les vestiges d'un peu plus d'une centaine de moulins à vent autrefois destinés à broyer la canne à sucre qui demeure la principale richesse de l'île.
                                 </p>
-                                <blockquote className="p_bq margin-t20">Avec une usine sucrière, trois distilleries, des cultures vivrières et la pêche, Marie-Galante la rurale s'ouvre au Tourisme. Ses trois localités principales, Capesterre, Saint-Louis et son chef lieu Grand-bourg se déploient en bordure de mer.</blockquote>
+                                <blockquote>Avec une usine sucrière, trois distilleries, des cultures vivrières et la pêche, Marie-Galante la rurale s'ouvre au Tourisme. Ses trois localités principales, Capesterre, Saint-Louis et son chef lieu Grand-bourg se déploient en bordure de mer.</blockquote>
                                 <p>
                                     Ainsi, sur le territoire de la plus ancienne bourgade de l'île, là où les cinquante premiers colons ont tenté de s'établir en 1648, Saint-Louis se prélasse en bordure d'une superbe baie qui porte son nom. 
                                 </p>
@@ -54,20 +59,19 @@ export default class Welcome extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div className="container">
+            </div>:<span></span>}
+            <div className="container">
             <div className="text-head">
                 <h1>PASSEZ VOS VACANCES LÀ OÚ HABITENT LES AUTRES !</h1>
             </div>
 
             <div className="welcome-block-full-image">
                 <div>
-                    <p>Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
+                    <p>Ici vous ètes chez vous. 
                     Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
                     une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>
                     <div className="center">
-                        <button className="btn btn-primary" href="/" onClick={()=>this.handleModal(this.state.modalV)}>Voir plus</button>
+                        <button className="btn btn-primary" href="/" onClick={this.handleModal}>Voir plus</button>
                     </div>
                 </div>
             </div>

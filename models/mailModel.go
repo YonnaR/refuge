@@ -68,7 +68,7 @@ func (mail *Mail) sendAdmin(data mailMail) {
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", os.Getenv("MAIL_USER"))
-	m.SetAddressHeader("To", os.Getenv("MAIL_USER"), "site www.refugehulman.com")
+	m.SetAddressHeader("To", "refugehulman@gmail.com", "site www.refugehulman.com")
 	m.SetHeader("Subject", "Demande de renseignements : "+data.Subject)
 	m.SetBody("text/html", buf.String())
 

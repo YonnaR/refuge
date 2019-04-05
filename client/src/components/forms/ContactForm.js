@@ -6,6 +6,7 @@ import ErrorAlert from '../widgets/alert/ErrorAlert';
 import SuccessAlert from '../widgets/alert/SuccessAlert';
 
 export default class ContactForm extends Component {
+
   constructor(props){
     super(props);
     this.state={
@@ -114,7 +115,7 @@ export default class ContactForm extends Component {
               {modalVis?
                 <ValidationModal
                     title="Confirmation de réservation"
-                    message={`Vous êtes sur le point d'envoyer un message de prise de contact. <br/> Souhaitez-vous continuer?`}
+                    message={`Vous êtes sur le point d'envoyer un message de prise de contact. Souhaitez-vous continuer?`}
                     onConfirm={this.handleForm}
                     onCancel={this.handleCloseModal}
                     onClose={this.handleCloseModal}
@@ -170,7 +171,7 @@ export default class ContactForm extends Component {
               <input 
                 className="input1" 
                 type="text" 
-                placeholder="Subject"
+                placeholder="Sujet"
                 value={subject}
                 onChange={(e)=>this.setState({subject:e.target.value})} />
               <span className="shadow-input1"></span>
@@ -190,7 +191,7 @@ export default class ContactForm extends Component {
               <button className="contact1-form-btn" onClick={this.checkForm}>
                 <span>
                   Envoyer
-                  <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  <i className="fa fa-long-arrow-right"></i>
                 </span>
               </button>
             </div>

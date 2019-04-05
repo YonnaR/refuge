@@ -18,18 +18,20 @@ export default () => {
               autoPlay={true}
               >
               <div>
-              <img src="/images/excursion/image001.jpg" />                  <p className="legend">Legend 1</p>
+                <img  src="/images/excursion/image001.jpg" alt="Scomplexe refuge hulman vue de face" />
+                <p className="legend">le refuge hulman vue de face</p>
               </div>
               <div>
-                <img src="/images/excursion/image006.jpg" />        <p className="legend">Legend 1</p>
+                <img src="/images/excursion/image006.jpg" alt="complexe refuge hulman vu en hauteur depuis un gite" />
+                <p className="legend">vue en hauteur avec la piscine</p>
               </div>
               <div>
-                  <img src="/images/restau/image03.jpg" />
-                  <p className="legend">Legend 2</p>
+                  <img src="/images/restau/image03.jpg" alt="salle de reception du complexe refuge hulman"/>
+                  <p className="legend">salle de reception/restaurant</p>
               </div>
               <div>
-                  <img src="images/restau/image02.jpg" />
-                  <p className="legend">Legend 3</p>
+                  <img src="images/restau/image02.jpg" alt="gerant du refuge entrain de servir un planteur dans le restaurant"/>
+                  <p className="legend">Pour de belles vaccances</p>
               </div>
             </Carousel>
 
@@ -65,12 +67,12 @@ export default () => {
           </div>
 
         <div className="row col-md-10 offset-md-1">
-          <h4 className="text-center">
-            <br/>
+          <h4 className="subtitle">
             <br/>
             PASSEZ VOS VACANCES LÀ OÚ HABITENT LES AUTRES !
           </h4>
-          <p>Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
+          <p className="subtitle"><br/>
+          Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
           Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
           une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>  
           <p className="subtitle">

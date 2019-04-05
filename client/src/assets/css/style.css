@@ -16,6 +16,13 @@ body {
 #App{
     width: 90%;
 }
+
+.subtitle{
+    font-style: italic;
+    font-weight: bold;
+    color: #2B2D2D;
+
+}
 .center{
     display:flex;
     justify-content:center;

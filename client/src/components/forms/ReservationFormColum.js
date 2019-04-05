@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import "../../assets/css/reservationFormColumn.css"
 import Axios from 'axios';
 import ErrorAlert from '../widgets/alert/ErrorAlert';
-import SuccessAlert from '../widgets/alert/SuccessAlert'
-import ValidationModal from '../widgets/modal/ValidationModal'
+import SuccessAlert from '../widgets/alert/SuccessAlert';
+import ValidationModal from '../widgets/modal/ValidationModal';
+
+import "../../assets/css/reservationFormColumn.css";
 
 export default class ReservationFormColumn extends Component {
 
@@ -82,7 +83,6 @@ export default class ReservationFormColumn extends Component {
 
     /* handle form send to serveur function */
     handleForm=()=>{
-
         /* Parse data for server */
         let data = this.state;
         data.tel = parseInt(data.tel);
@@ -92,21 +92,22 @@ export default class ReservationFormColumn extends Component {
         data.endDate = String(data.endDate)
 
         /* Post data */
-        Axios.post("/reservation",data,{
-            "httpsAgent": new Axios.httpsAgent.Agent({ keepAlive: true }),
+        Axios.post("/reservation",data)
+        .catch((error)=>{
+            this.setState({
+                errMsg:error,
+                isValidationNeeded:false
+            })
         })
         .then((response)=>{
             this.setState({
                 errMsg:null,
-                successMsg:"Validation effectuée avec succès"
-            })
-            this.clearForm();
-            this.handleCloseModal()
+                successMsg:"Réservation effectuée avec succès"
+            });
         })
-        .catch((error)=>{
-            this.setState({
-                errMsg:error
-            })
+        .then(()=>{
+            this.clearForm();
+            this.handleCloseModal();
         })
     }
 
@@ -121,8 +122,7 @@ export default class ReservationFormColumn extends Component {
             adults:1,
             childrens:0,
             startDate:'',
-            endDate:'',
-            price:0
+            endDate:''
         })
     }
 
@@ -142,9 +142,7 @@ export default class ReservationFormColumn extends Component {
 
 
   render() {
-    console.log(this.state)
-    const {firstName , lastName , mail , tel , adults , childrens , startDate , endDate, message, errMsg, successMsg, isValidationNeeded, price } = this.state
-
+    const {firstName , lastName , mail , tel , adults , childrens , startDate , endDate, message, errMsg, successMsg, isValidationNeeded } = this.state
     return (
         <div className="form">
             <h1 style={{textAlign:'center'}}>
@@ -270,7 +268,7 @@ export default class ReservationFormColumn extends Component {
                                 required="" 
                                 value={lastName} 
                                 onChange={(e)=>this.setState({lastName : e.target.value})} 
-                                placeholder="Prénom"
+                                placeholder="Nom"
                                 />
                             <div className="validation"></div>
                         </div> 
