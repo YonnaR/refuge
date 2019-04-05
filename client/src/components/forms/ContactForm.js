@@ -132,9 +132,6 @@ export default class ContactForm extends Component {
                   onClose={this.handleClearToolTip} 
               />:<span></span>}
             </div>
-            <span className="contact1-form-title">
-              Restons en contact
-            </span>
 
             <div className="wrap-input1 validate-input">
               <input 

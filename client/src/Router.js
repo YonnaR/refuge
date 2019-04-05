@@ -18,7 +18,6 @@ export default function(){
         <Router>
             <Analytics id="UA-135019758-1" debug>
                 <Navbar/>
-                <br/><br/><br/>
                 <Switch className="container-fluid">
                     <Route exact path="/" component={HomeView}/>
                     <Route path="/gites" component={GiteView}/>

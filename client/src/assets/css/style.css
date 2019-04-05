@@ -23,6 +23,14 @@ body {
     color: #2B2D2D;
 
 }
+.banner{
+    position: relative;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: auto;
+}
 .center{
     display:flex;
     justify-content:center;

@@ -31,7 +31,7 @@ export default () => {
               </div>
               <div>
                   <img src="images/restau/image02.jpg" alt="gerant du refuge entrain de servir un planteur dans le restaurant"/>
-                  <p className="legend">Pour de belles vaccances</p>
+                  <p className="legend">Pour de belles vacances</p>
               </div>
             </Carousel>
 

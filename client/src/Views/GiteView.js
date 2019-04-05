@@ -7,6 +7,8 @@ export default class GiteView extends Component {
   render() {
     return (
       <div>
+        <img className="banner" home="bannière page gîtes" src="/images/banieres/gites.png" />
+        <br/>
         <br/>
         <GiteResume/>
         <GiteGallerie/>

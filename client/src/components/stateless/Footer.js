@@ -35,7 +35,7 @@ export default () => {
                                     Section Saint-Charles<br/>
                                     97 134 Saint-Louis de marie-Galante 
                             </div>
-                        <div className=""><a style={{color: "#fff"}} href="tel:0782209024"><i className="fa fa-phone"></i> 05 90 97 05 02</a></div>
+                        <div className=""><a style={{color: "#fff"}} href="tel:+590590970502"><i className="fa fa-phone"></i> 05 90 97 05 02</a></div>
                         <div className=""><a style={{color: "#fff"}} href="mailto:refugehulman@gmail.com"><i className="fa fa-envelope-o"></i>refugehulman[at]gmail[dot]com</a></div>
                         </div>
                         </div>
