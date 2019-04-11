@@ -16,13 +16,7 @@ export default class Navbar extends Component {
             <li className="nav-item">
               <a className="nav-link" href="/#/restaurant">Restaurant</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/#/reservation">Réservation</a>
-            </li>
           </ul>
-          <span className="navbar-text">
-            <a className="nav-link" href="/#/contact">Nous contacter</a>
-          </span>
         </div>
       </nav>
     )

@@ -105,6 +105,9 @@ export default class ContactForm extends Component {
     const { name, tel, subject, message, from, successMsg, errMsg, modalVis } = this.state;
     return (
       <div className="contact1">
+        <br/>
+        <br/>
+        <h2 className="header-h"> Restons en contact</h2>
         <div className="container-contact1">
           <div className="contact1-pic js-tilt" data-tilt>
             <img src="images/logo.png" alt="IMG"/>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Welcome from '../components/Welcome';
-import Service from '../components/Service';
-import Staff from '../components/Staff';
+import Welcome from '../components/stateless/Welcome';
+import ContactForm from '../components/forms/ContactForm';
 
 export default class HomeView extends Component {
   render() {
@@ -9,10 +8,7 @@ export default class HomeView extends Component {
       <div>
         <img className="banner" alt="bannière page d'acceuil" src="/images/banieres/home.png" />
         <Welcome/>
-        <br/>
-        <br/>
-        <img className="banner" alt="bannière des services" src="/images/banieres/service.png" />
-        <Staff/>
+        <ContactForm/>
       </div>
     )
   }

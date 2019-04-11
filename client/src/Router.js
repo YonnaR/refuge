@@ -9,9 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/stateless/Footer';
 import HomeView from './Views/HomeView';
 import RestaurantView from './Views/RestaurantView';
-import ReservationView from './Views/ReservationView';
 import GiteView from './Views/GiteView';
-import ContactView from './Views/ContactView';
 
 export default function(){
     return(
@@ -22,8 +20,6 @@ export default function(){
                     <Route exact path="/" component={HomeView}/>
                     <Route path="/gites" component={GiteView}/>
                     <Route path="/restaurant" component={RestaurantView}/>
-                    <Route path="/reservation" component={ReservationView}/>
-                    <Route path="/contact" component={ContactView}/>
                 </Switch>
                 <Footer/>
             </Analytics>

@@ -3,8 +3,8 @@ html, body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    background-color: #FAEBD7;
-    overflow-x: hidden;
+/*     background-color: #FAEBD7;
+ */    overflow-x: hidden;
 }
 body {
     font-size: 130%;
@@ -16,12 +16,23 @@ body {
 #App{
     width: 90%;
 }
-
+.btn-primary{
+    background-color: #3B752F;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #F9E70F;
+    color: #3B752F;
+    border: none;
+}
 .subtitle{
     font-style: italic;
     font-weight: bold;
     color: #2B2D2D;
 
+}
+.text-yellow{
+    color:#fecc17;
 }
 .banner{
     position: relative;
@@ -36,11 +47,18 @@ body {
     justify-content:center;
     align-items: center;
 }
+.rigth{
+    display: flex;
+    justify-content: flex-end;
+}
 .text-left{
     text-align: left
 }
 .text-center{
     text-align: center
+}
+.text-white{
+    color:white;
 }
 .border-top{
     border-top-color: "#000000";
@@ -51,84 +69,26 @@ body {
 }
 .border-box{
     height: 100%;
-    border: 2px solid grey;
+    border: 2px solid #3B752F;
     border-radius: 15px;
     margin:4%;
     padding:15px;
 }
-.div-logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.width-100{
+    width: 100vw;
 }
-
 a, a:hover, a:focus, button:hover, button:focus {
     outline: 0 none !important;
     text-decoration: none;
+    color: #3B752F;
 }
 a:hover{
-    color: #e01931;
+    color: #F9E70F;
 }
 
-.welcome-block, .special-block, .food-block, .service-block, .book-block, .counter-block, .staff-block, .subscribe-block, .contact-block{
-    padding-top: 135px;
-}
-/*welcome block*/
-.welcome-block-full-image{
-    background: url('/images/excursion/banner1.jpg');
-}
-.welcome-block-full-image > div {
-    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-    padding: 12px 12px 15px 12px;
-    width: 43%;
-    margin-top: 135px;
-}
-.welcome-block-full-image > div > p {
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 2px;
-    line-height: 30px;
-    margin-bottom: 35px;
-}
-/*effect*/
-.food-image .overlay, .event-image .overlay, .staff-image .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    transition: all 0.4s ease-in-out 0s;
-    width: 100%;
-}
-.staff-image {
-    cursor: default;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-}
-.staff-image:hover .overlay {
-    opacity: 1;
-}
-.staff-image a.info {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    font-size: 22px;
-    font-weight: 600;
-    height: 100%;
-    justify-content: center;
-    letter-spacing: 5px;
-    opacity: 1;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in-out 0s;
-    width: 100%;
-}
-.staff-image a.info:hover{
-    color: #e01931;
+.welcome-image{
+    background: url('/images/excursion/image001.jpg');
+    background-repeat: no-repeat;
 }
 .btn{
     font-size: 140%;
@@ -146,62 +106,62 @@ button.close:hover {
     background: #fff;
     border-color: #fff;
     opacity: 1;
-    color: #e01931;
+    color: #3B752F;
 }
 .img{
     width: 95%;
     height: auto;
 }
-/*about page*/
-.about-info {
-    font-size: 16px;
-    letter-spacing: 2px;
-    line-height: 27px;
-    margin-top: 80px;
-    text-align: justify;
-}
 
-/*footer*/
-footer{
-    background: #2B2D2D;
-    margin-top: 135px;
-    padding: 35px 0 25px 0;
-    color: #fff;
-    font-size: 90%;
-    width: 100vw;
-}
-.footer-block > h4 {
-    font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-.footer-block ul li {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    line-height: 40px;
-    text-transform: uppercase;
-}
-.footer-block ul li p{
-    font-size: 16px;
-    font-weight: 500;
-}
-.footer-block ul li a{
-    color: #fff;
-}
-.footer-block ul li a:hover{
-    color: #e01931
-}
-.footer-sgwidget {
-    margin: 20px auto;
-    overflow: hidden;
-}
-.footer-contact-info>div {
-    background: rgba(0, 0, 0, 0.2);
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+ .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
     border-radius: 5px;
-    margin: 10px 0;
-    padding: 8px 0;
-    position: relative;
-    padding-left: 40px;
-}
+  }
+  
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+  
+  
+  /*
+   * Extra utilities
+   */
+  
+  .flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      -ms-flex: 1;
+      flex: 1;
+    }
+  }
+  
+  .overflow-hidden { overflow: hidden; }

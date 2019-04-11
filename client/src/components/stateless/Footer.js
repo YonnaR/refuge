@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import "../../assets/css/footer.css"
 
 export default () => {
   return (
@@ -7,22 +8,16 @@ export default () => {
             <div className="container">
                 <div className="row footer-block-main ">
                     <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center">
-                        <div className="footer-block"><h4>Liens:</h4>
-                            <ul className="list-unstyled">
+                    <div className=" text-center footer-block"><h4>Naviguer:</h4>
+                    <ul className="list-unstyled">
                                 <li className="active"><Link to="/">Home</Link></li>
                                 <li><Link to="/gites">Gites</Link></li>
                                 <li><Link to="/restaurant">Restaurant</Link></li>
-                                <li><Link to="/tarif">Reservation</Link></li>
                             </ul>
                         </div>
                     </div>
                     <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-12 col-xs-12">
-                        <div className="footer-block text-center"><h4>Horaires:</h4>
-                            <ul className="list-unstyled">
-                                <li><p>Semaine : 11:00 - 16:00</p></li>
-                                <li><p>Samedi : 11:00 - 16:00</p></li>
-                            </ul>
-                        </div>
+                        
                     </div>
 
                     <div className="textwidget col-lg-4 offset-lg-1 col-md-6 col-sm-12 col-xs-12 ">

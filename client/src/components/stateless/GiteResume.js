@@ -6,9 +6,23 @@ import tarif from "../../assets/grille-tarifaire-refuge-2019.pdf"
 export default () => {
 
   return (
-    <div className="container-fluid row">
+    <div className="row">
       
-        <div className="offset-md-1 col-md-7 col-sm-12">
+      <div className="col-md-10 offset-md-1" style={{padding:"27px"}}>
+        <h4 className="text-center header-h">
+          Bienvenue Chez Vous!
+        </h4>
+        <p className="header-p"><br/>
+        Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
+        Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
+        une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>  
+        <p className="header-p">
+        Le domaine des Gîtes de Refuge Hulman situé entre La flore locale et la rivière des sources, vous accueille sur un vaste site paysager de près de 3 hectares. Ce gîte de style traditionnel antillais mais néanmoins chaleureux vous offre de vaste et belle pièce de vie, confortable et baignée de lumière, conviviale avec son piscine, ainsi qu’une belle terrasse donnant sur de vue a couper le souffle, parfait pour des moments chaleureux en famille ou entre amis Toute l'année. Parking dans la propriété, Gîte indépendant sur un ensemble de gîtes, et surtout, Découvertes touristiques inégalées au coeur de la campagne Marie-Galantaise .</p>
+        <br/>
+        <a href={tarif} target="_blank"> Voir nos tarifs</a>
+      </div>
+
+        <div className=" row offset-md-1 col-md-7 col-sm-12">
             <Carousel
               showArrows={false}
               showStatus={false}
@@ -38,21 +52,21 @@ export default () => {
         </div>
         <br/>
         <br/>
-        <div className="border-box col-md-3 col-sm-12 ">
+        <div className="border-box col-md-3 col-sm-10 ">
           <div className="noo-text-block">
-            <h3 className="text-center">
+            <h3 className="text-center header-h">
               <strong>En Résumé :</strong>
             </h3>
           </div>
           <hr className="noo-gap" style={{ margin: "20px 0 0 0"}}/>
           <div className="noo-text-block">
-            <ul className="list-unstyled">
-              <li className="text-left">Capacité de 20 Couchages</li>
-              <li className="text-left">Capacité de 50 convives pour les repas</li>
-              <li>Surface de plus d'un hectare</li>
-              <li className="text-left">6 chambres</li>
-              <li className="text-left">6 salles de bain / 7 WC</li>
-              <li className="text-left">Dans un cadre reculé a la campagne</li>
+            <ul className="details-list">
+              <li>Capacité de 20 Couchages</li>
+              <li>Capacité de 50 convives pour les repas</li>
+              <li>Surface de près de trois hectare</li>
+              <li>6 chambres</li>
+              <li>6 salles de bain / 7 WC</li>
+              <li>Dans un cadre magnifique à la campagne</li>
             </ul>
 
           </div>
@@ -62,24 +76,11 @@ export default () => {
               <span className="border-top"></span>
             </div>
             <div className="center" >
-              <Link to="reservation" className="btn btn-success" title="Reservation">Réserver</Link>
+              <Link to="reservation" className="btn btn-primary" title="Reservation">Réserver</Link>
             </div>
           </div>
-
-        <div className="row col-md-10 offset-md-1">
-          <h4 className="subtitle">
-            <br/>
-            PASSEZ VOS VACANCES LÀ OÚ HABITENT LES AUTRES !
-          </h4>
-          <p className="subtitle"><br/>
-          Voilà le mot d'ordre de Georges et Fortuna, vos dévoués hôtes. Car chez eux, vous ètes chez vous. 
-          Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
-          une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>  
-          <p className="subtitle">
-          Le domaine des Gîtes de Refuge Hulman situé entre La flore locale et la rivière des sources, vous accueille sur un vaste site paysager de près de 3 hectares. Ce gîte de style traditionnel antillais mais néanmoins chaleureux vous offre de vaste et belle pièce de vie, confortable et baignée de lumière, conviviale avec son piscine, ainsi qu’une belle terrasse donnant sur de vue a couper le souffle, parfait pour des moments chaleureux en famille ou entre amis Toute l'année. Parking dans la propriété, Gîte indépendant sur un ensemble de gîtes, et surtout, Découvertes touristiques inégalées au coeur de la campagne Marie-Galantaise .</p>
           <br/>
-          <a href={tarif}> Télécharger nos tarifs</a>
-          </div>
+          <br/>
     </div>
   )
 }
