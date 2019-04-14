@@ -1,9 +1,148 @@
 import React, { Component } from 'react'
+import FormWidget from '../widgets/FormWidget';
+import Axios from 'axios';
+import ErrorAlert from '../widgets/alert/ErrorAlert';
+import SuccessAlert from '../widgets/alert/SuccessAlert';
+import ValidationModal from '../widgets/modal/ValidationModal';
 
 export default class componentName extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            firstName:'',
+            lastName:'',
+            mail:'',
+            tel:'',
+            message:'',
+            couverts:'',
+            hour:'',
+            date:'',
+            isValidationNeeded:false,
+            successMsg:null,
+            errMsg:null
+        }
+    }
+
+    /* check if all forms inputs are completed carefully */
+    checkFormIntegrity=()=>{
+
+        /* email regexp for email checking */
+        let emailRgxp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+        if(this.state.firstName === ""){
+            this.setState({
+                errMsg:"entrez un prénom valide"
+            })
+        }
+        else if(this.state.lastName === ""){
+            this.setState({
+                errMsg:"entrez un nom valide"
+            })
+        }
+        else if(this.state.mail.match(emailRgxp)===null){
+            this.setState({
+                errMsg:"entrez une adresse mail valide"
+            })
+        }
+        else if(this.state.tel === ""){
+            this.setState({
+                errMsg:"entrez un numéro de téléphone valide"
+            })
+        }
+        else if(this.state.couverts === ""){
+            this.setState({
+                errMsg:"entrez un nombre de couverts valide"
+            })
+        }
+        else if(this.state.hour === ""){
+            this.setState({
+                errMsg:"entrez une heure valide"
+            })
+        }
+        else if(this.state.date === ""){
+            this.setState({
+                errMsg:"entrez une date valide"
+            })
+        }
+        else{
+            this.setState({
+                isValidationNeeded:true
+            })
+        }
+
+    }
+
+    /* handle form send to serveur function */
+    handleForm=()=>{
+
+        /* Parse data from input */
+        let data = ()=>{
+            return {
+                "firstName":this.state.firstName,
+                "lastName":this.state.lastName,
+                "mail":this.state.mail,
+                "tel":parseInt(this.state.tel),
+                "message":this.state.message,
+                "couverts":parseInt(this.state.couverts),
+                "hour":this.state.hour,
+                "reservationDate":this.state.date,
+            }
+        }
+
+        /* Post data */
+        Axios.post("/reservation-restaurant",data)
+        .catch((error)=>{
+            this.setState({
+                errMsg:error,
+                isValidationNeeded:false
+            })
+        })
+        .then((response)=>{
+            this.setState({
+                errMsg:null,
+                successMsg:"Réservation effectuée avec succès"
+            });
+        })
+        .then(()=>{
+            this.clearForm();
+            this.handleCloseModal();
+        })
+    }
+
+    /* Clear form handle function */
+    clearForm=()=>{
+        this.setState({
+            firstName:'',
+            lastName:'',
+            mail:'',
+            tel:'',
+            message:'',
+            couverts:'',
+            hour:'',
+            date:'',
+        })
+    }
+
+    /* clear tool tips */
+    handleClearToolTip=()=>{
+        this.setState({
+            errMsg:null,
+            successMsg:null
+        })
+    }
+
+    handleCloseModal=()=>{
+        this.setState({
+            isValidationNeeded:false
+        })
+    }
+
     render() {
+        const {firstName , lastName , mail , tel , couverts , hour , date , message, errMsg, successMsg, isValidationNeeded } = this.state
+
         return (
-            <section id="contact" className="section-padding">
+            <section id="reservation-restau" className="section-padding">
                 <div className="container">
                 <div className="row">
                     <div className="col-md-12 text-center">
@@ -14,81 +153,132 @@ export default class componentName extends Component {
                     </div>
                 </div>
                 <div className="row msg-row">
-                    <div className="col-md-4 col-sm-4 mr-15">
-                        <div className="media-2">
-                            <div className="media-left">
-                            <div className="contact-phone bg-1 text-center"><span className="phone-in-talk fa fa-phone"></span></div>
-                            </div>
-                            <div className="media-body">
-                                <h4 className="dark-blue regular">Phone Numbers</h4>
-                                <p className="light-blue regular alt-p">+440 875369208 - <span className="contacts-sp">Phone Booking</span></p>
-                            </div>
-                        </div>
-                        <div className="media-2">
-                            <div className="media-left">
-                            <div className="contact-email bg-14 text-center"><span className="hour-icon fa fa-clock-o"></span></div>
-                            </div>
-                            <div className="media-body">
-                                <h4 className="dark-blue regular">Opening Hours</h4>
-                                <p className="light-blue regular alt-p"> Monday to Friday 09.00 - 24:00</p>
-                                <p className="light-blue regular alt-p">
-                                    Friday and Sunday 08:00 - 03.00
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <FormWidget/>
                     <div className="col-md-8 col-sm-8">
-                    <form action="" method="post" role="form" className="contactForm">
+                    <div className="contactForm">
+                        {/* Validation modal */}
+                        {isValidationNeeded?
+                            <ValidationModal
+                                title="Confirmation de réservation"
+                                message={`Vous êtes sur le point d'émettre une réservation. Souhaitez-vous continuer?`}
+                                onConfirm={this.handleForm}
+                                onCancel={this.handleCloseModal}
+                                onClose={this.handleCloseModal}
+                            />:<span></span>}
+                        {/* Display error message */}
+                        <div className="container-fluid">
+                            {errMsg !== null? <ErrorAlert 
+                                msg={errMsg} 
+                                onClose={this.handleClearToolTip} 
+                            />:<span></span>}
+                            {/* Display success message */}
+                            {successMsg !== null? <SuccessAlert 
+                                msg={successMsg} 
+                                onClose={this.handleClearToolTip} 
+                            />:<span></span>}
+                        </div>
+
                         <div className="col-md-6 col-sm-6 contact-form pad-form">
-                        <div className="form-group label-floating is-empty">
-                            <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div className="validation"></div>
+                            <div className="form-group label-floating is-empty">
+                                <input 
+                                    type="text" 
+                                    name="firstname" className="form-control" 
+                                    placeholder="Prénom"
+                                    value={firstName}
+                                    onChange={(e)=>this.setState({firstName:e.target.value})}
+                                />
+                            </div>
                         </div>
-            
-                        </div>
-                        <div className="col-md-6 col-sm-6 contact-form">
-                        <div className="form-group">
-                            <input type="date" className="form-control label-floating is-empty" name="date" id="date" placeholder="Date" data-rule="required" data-msg="This field is required" />
-                            <div className="validation"></div>
-                        </div>
-                        </div>
+
                         <div className="col-md-6 col-sm-6 contact-form pad-form">
-                        <div className="form-group">
-                            <input type="email" className="form-control label-floating is-empty" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div className="validation"></div>
+                            <div className="form-group label-floating is-empty">
+                                <input 
+                                    type="text" 
+                                    name="lastname" className="form-control" 
+                                    placeholder="Nom"
+                                    value={lastName}
+                                    onChange={(e)=>this.setState({lastName:e.target.value})}
+                                />
+                            </div>
                         </div>
+
+                        <div className="col-md-6 col-sm-6 contact-form">
+                            <div className="form-group">
+                                <input 
+                                    type="date" 
+                                    className="form-control label-floating is-empty" name="date"
+                                    placeholder="Date" 
+                                    value={date}
+                                    onChange={(e)=>this.setState({date:e.target.value})}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="col-md-6 col-sm-6 contact-form pad-form">
+                            <div className="form-group">
+                                <input 
+                                    type="email" className="form-control label-floating is-empty" name="email"
+                                    placeholder="Email" 
+                                    value={mail}
+                                    onChange={(e)=>this.setState({mail:e.target.value})}
+                                    />
+                            </div>
+                        </div>
+
+                        <div className="col-md-6 col-sm-6 contact-form">
+                            <div className="form-group">
+                                <input 
+                                    type="time" className="form-control label-floating is-empty" name="time" 
+                                    placeholder="Heure" 
+                                    value={hour}
+                                    onChange={(e)=>this.setState({hour:e.target.value})} 
+                                    />
+                            </div>
+                        </div>
+
+                        <div className="col-md-6 col-sm-6 contact-form">
+                            <div className="form-group">
+                                <input 
+                                    type="text"
+                                    className="form-control label-floating is-empty" name="phone"
+                                    placeholder="Téléphone" 
+                                    value={tel}
+                                    onChange={(e)=>this.setState({tel:e.target.value})}
+                                />
+                            </div>
                         </div>
                         <div className="col-md-6 col-sm-6 contact-form">
-                        <div className="form-group">
-                            <input type="time" className="form-control label-floating is-empty" name="time" id="time" placeholder="Time" data-rule="required" data-msg="This field is required" />
-                            <div className="validation"></div>
-                        </div>
-                        </div>
-                        <div className="col-md-6 col-sm-6 contact-form">
-                        <div className="form-group">
-                            <input type="text" className="form-control label-floating is-empty" name="phone" id="phone" placeholder="Phone" data-rule="required" data-msg="This field is required" />
-                            <div className="validation"></div>
-                        </div>
-                        </div>
-                        <div className="col-md-6 col-sm-6 contact-form">
-                        <div className="form-group">
-                            <input type="text" className="form-control label-floating is-empty" name="people" id="people" placeholder="People" data-rule="required" data-msg="This field is required" />
-                            <div className="validation"></div>
-                        </div>
+                            <div className="form-group">
+                                <input 
+                                type="number" 
+                                className="form-control label-floating is-empty" 
+                                name="couverts" 
+                                placeholder="nombre de couverts"
+                                value={couverts}
+                                onChange={(e)=>this.setState({couverts:e.target.value})} 
+                                />
+                            </div>
                         </div>
                         <div className="col-md-12 contact-form">
                         <div className="form-group label-floating is-empty">
-                            <textarea className="form-control" name="message" rows="5" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div className="validation"></div>
+                            <textarea 
+                            className="form-control" 
+                            name="message" 
+                            rows="5" 
+                            rows="3" 
+                            placeholder="Message"
+                            value={message}
+                            onChange={(e)=>this.setState({message:e.target.value})}
+                            ></textarea>
                         </div>
             
                         </div>
                         <div className="col-md-12 btnpad">
                         <div className="contacts-btn-pad center">
-                            <button className="btn btn-primary">Réserver</button>
+                            <button className="btn btn-primary" onClick={this.checkFormIntegrity} >Réserver</button>
                         </div>
                         </div>
-                    </form>
+                    </div>
                     </div>
                 </div>
                 </div>

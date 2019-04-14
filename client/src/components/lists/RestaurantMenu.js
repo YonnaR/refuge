@@ -15,7 +15,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="breakfast menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Bébélé</a>
+                    <p className="menu-title">Bébélé</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€10.00</span>
                     </span>
@@ -24,7 +24,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="breakfast menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Accras Crudité</a>
+                    <p className="menu-title">Accras Crudité</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€12.00</span>
                     </span>
@@ -33,7 +33,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="breakfast menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Poisson Grillé</a>
+                    <p className="menu-title">Poisson Grillé</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€12.00 / 14.00</span>
                     </span>
@@ -42,7 +42,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="breakfast menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Colombo de poulet</a>
+                    <p className="menu-title">Colombo de poulet</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€12.00</span>
                     </span>
@@ -51,7 +51,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="lunch menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Fricassé de lambi</a>
+                    <p className="menu-title">Fricassé de lambi</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€22.00</span>
                     </span>
@@ -60,7 +60,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="lunch menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Fricassé de chatrou</a>
+                    <p className="menu-title">Fricassé de chatrou</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€18.00</span>
                     </span>
@@ -69,7 +69,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="lunch menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Fricassé de cochon.</a>
+                    <p className="menu-title">Fricassé de cochon.</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€14.00</span>
                     </span>
@@ -78,7 +78,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="lunch menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Fricassé de volaille</a>
+                    <p className="menu-title">Fricassé de volaille</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€12.00</span>
                     </span>
@@ -87,7 +87,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="lunch menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"> Langouste farcie</a>
+                    <p className="menu-title"> Langouste farcie</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€36.00</span>
                     </span>
@@ -96,7 +96,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="dinner menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Blaff de Burgot</a>
+                    <p className="menu-title">Blaff de Burgot</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€30.00</span>
                     </span>
@@ -105,7 +105,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="dinner menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Ragout de cabrit local</a>
+                    <p className="menu-title">Ragout de cabrit local</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€16.00</span>
                     </span>
@@ -114,7 +114,7 @@ export default class RestaurantMenu extends Component {
 
                 <div className="dinner menu-restaurant">
                     <span className="clearfix">
-                    <a className="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Court-Bouillon de poisson</a>
+                    <p className="menu-title">Court-Bouillon de poisson</p>
                     <span  className="left-rigth menu-line"></span>
                     <span className="menu-price">€16.00</span>
                     </span>

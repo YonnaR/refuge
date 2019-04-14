@@ -26,7 +26,7 @@ export default () => {
                 </div>
             </div>
             <div className="col-md-6 col-sm-6">
-                <img src="/images/restau/poissonG.png" alt="" style={{width:"100%"}} className="img-responsive"/>
+                <img src="/images/restau/poissonG.png" alt="poissong grillé et gratin de fruit a pain" style={{width:"100%"}} className="img-responsive"/>
             </div>
             </div>
             <div className="col-md-1"></div>

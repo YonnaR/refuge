@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import tarif from "../../assets/grille-tarifaire-refuge-2019.pdf"
 
@@ -19,7 +18,7 @@ export default () => {
         <p className="header-p">
         Le domaine des Gîtes de Refuge Hulman situé entre La flore locale et la rivière des sources, vous accueille sur un vaste site paysager de près de 3 hectares. Ce gîte de style traditionnel antillais mais néanmoins chaleureux vous offre de vaste et belle pièce de vie, confortable et baignée de lumière, conviviale avec son piscine, ainsi qu’une belle terrasse donnant sur de vue a couper le souffle, parfait pour des moments chaleureux en famille ou entre amis Toute l'année. Parking dans la propriété, Gîte indépendant sur un ensemble de gîtes, et surtout, Découvertes touristiques inégalées au coeur de la campagne Marie-Galantaise .</p>
         <br/>
-        <a href={tarif} target="_blank"> Voir nos tarifs</a>
+        <a href={tarif} rel="noopener noreferrer" target="_blank"> Voir nos tarifs</a>
       </div>
 
         <div className=" row offset-md-1 col-md-7 col-sm-12">
@@ -32,7 +31,7 @@ export default () => {
               autoPlay={true}
               >
               <div>
-                <img  src="/images/excursion/image001.jpg" alt="Scomplexe refuge hulman vue de face" />
+                <img  src="/images/excursion/image001.jpg" alt="complexe refuge hulman vue de face" />
                 <p className="legend">le refuge hulman vue de face</p>
               </div>
               <div>
@@ -74,9 +73,6 @@ export default () => {
             <div  style={{padding:"5px", width: "100%", paddingTop: "20px", paddingBottom: "20px"}}>
               <span className="border-top"></span>
               <span className="border-top"></span>
-            </div>
-            <div className="center" >
-              <Link to="reservation" className="btn btn-primary" title="Reservation">Réserver</Link>
             </div>
           </div>
           <br/>

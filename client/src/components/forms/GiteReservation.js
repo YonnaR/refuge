@@ -5,6 +5,7 @@ import SuccessAlert from '../widgets/alert/SuccessAlert';
 import ValidationModal from '../widgets/modal/ValidationModal';
 
 import "../../assets/css/reservationFormColumn.css";
+import FormWidget from '../widgets/FormWidget';
 
 export default class ReservationFormColumn extends Component {
 
@@ -20,7 +21,6 @@ export default class ReservationFormColumn extends Component {
             childrens:0,
             startDate:'',
             endDate:'',
-            price:0,
             isValidationNeeded:false,
             successMsg:null,
             errMsg:null
@@ -92,7 +92,7 @@ export default class ReservationFormColumn extends Component {
         data.endDate = String(data.endDate)
 
         /* Post data */
-        Axios.post("/reservation",data)
+        Axios.post("/reservation-gites",data)
         .catch((error)=>{
             this.setState({
                 errMsg:error,
@@ -144,183 +144,164 @@ export default class ReservationFormColumn extends Component {
   render() {
     const {firstName , lastName , mail , tel , adults , childrens , startDate , endDate, message, errMsg, successMsg, isValidationNeeded } = this.state
     return (
-        <div className="form">
-            <h1 style={{textAlign:'center'}}>
-                Vous serez bientot au soleil<br/>
-                <small>
-                    attention une taxe de séjour est applicable a votre arrivé depuis Janvier 2019
-                </small>
-            </h1>
-            {/* Validation modal */}
-            {isValidationNeeded?
-                <ValidationModal
-                    title="Confirmation de réservation"
-                    message={`Vous êtes sur le point d'émettre une réservation. Souhaitez-vous continuer?`}
-                    onConfirm={this.handleForm}
-                    onCancel={this.handleCloseModal}
-                    onClose={this.handleCloseModal}
-                />:<span></span>}
-            {/* Display error message */}
-            <div className="container-fluid">
-                {errMsg !== null? <ErrorAlert 
-                    msg={errMsg} 
-                    onClose={this.handleClearToolTip} 
-                />:<span></span>}
-                {/* Display success message */}
-                {successMsg !== null? <SuccessAlert 
-                    msg={successMsg} 
-                    onClose={this.handleClearToolTip} 
-                />:<span></span>}
-            </div>
-                
-            <div className="contentform">    
-
-                <div className="leftcontact">
-                    <div className="form-group">
-                        <p>Prénom<span>*</span></p>
-                        <span className="icon-case">
-                            <i className="fa fa-male"></i>
-                        </span>
-                        <input 
-                            type="text" 
-                            required="" 
-                            value={firstName} 
-                            onChange={(e)=>this.setState({firstName : e.target.value})} 
-                            placeholder="Prénom"
-                            />
-                        <div className="validation"></div>
-                    </div> 
-        
-                    <div className="form-group">
-                        <p>E-mail <span>*</span></p>	
-                        <span className="icon-case">
-                            <i className="fa fa-envelope-o"></i>
-                        </span>
-                        <input 
-                            type="email" 
-                            value={mail} 
-                            onChange={(e)=>this.setState({mail : e.target.value})}  
-                            placeholder="E-mail"
-                        />
-                        <div className="validation"></div>
-                    </div>	
-
-                    <div className="form-group">
-                        <p>Début <span>*</span></p>
-                        <span className="icon-case">
-                            <i className="fas fa-calendar-alt"></i>
-                        </span>
-                        <input type="date" 
-                            value={startDate} 
-                            onChange={(e)=>this.setState({startDate : e.target.value})}  
-                            placeholder="date de début" 
-                        />
-                        <div className="validation"></div>
-                    </div> 
-
-                    <div className="form-group">
-                        <p>Adultes <span>*</span></p>	
-                        <span className="icon-case">
-                            <i className="fas fa-male"></i>
-                        </span>
-                        <select 
-                            value={adults} 
-                            onChange={(e)=>this.setState({adults : e.target.value})} 
-                        > 
-                            <option default value={1}>1 Adulte</option>
-                            <option value={2}>2 Adultes</option>
-                            <option value={3}>3 Adultes</option>
-                            <option value={4}>4 Adultes</option>
-                        </select>
-                        <div className="validation"></div>
-                    </div>
-
-                    <div className="form-group">
-                    <p>Enfants <span>*</span></p>	
-                    <span className="icon-case">
-                        <i className="fas fa-child"></i>
-                    </span>
-                    <select 
-                        value={childrens} 
-                        onChange={(e)=>this.setState({childrens : e.target.value})} 
-                    > 
-                        <option value={0}>0 Enfants</option>
-                        <option value={1}>1 Enfants</option>
-                        <option value={2}>2 Enfants</option>
-                        <option value={3}>3 Enfants</option>
-                        <option value={4}>4 Enfants</option>
-                    </select>
-                    <div className="validation"></div>
-                    </div>
+        <section id="reservation-restau" className="section-padding">
+            <div className="container">
+            <div className="row">
+                <div className="col-md-12 text-center">
+                <h1 className="header-h">Réserver un gîte</h1>
+                <p className="header-p">Vous avez une requête en particulier? un bébé? des questions?
+                    <br/>Laissez nous un message dans le formulaire ci-contre afin d'expliquer votre demande.
+                    <br/> Nous vous recontacterons au plus vite. </p>
                 </div>
-        
-                <div className="rightcontact">	
-        
-                    <div className="form-group">
+            </div>
+                <div className="row msg-row">
+                <FormWidget/>
+                <div className="col-md-8 col-sm-8">
+                <div className="contactForm">
+                    {/* Validation modal */}
+                    {isValidationNeeded?
+                        <ValidationModal
+                            title="Confirmation de réservation"
+                            message={`Vous êtes sur le point d'émettre une réservation. Souhaitez-vous continuer?`}
+                            onConfirm={this.handleForm}
+                            onCancel={this.handleCloseModal}
+                            onClose={this.handleCloseModal}
+                        />:<span></span>}
+                    {/* Display error message */}
+                    <div className="container-fluid">
+                        {errMsg !== null? <ErrorAlert 
+                            msg={errMsg} 
+                            onClose={this.handleClearToolTip} 
+                        />:<span></span>}
+                        {/* Display success message */}
+                        {successMsg !== null? <SuccessAlert 
+                            msg={successMsg} 
+                            onClose={this.handleClearToolTip} 
+                        />:<span></span>}
+                    </div>
 
-                        <div className="form-group">
-                            <p>Nom<span>*</span></p>
-                            <span className="icon-case">
-                                <i className="fa fa-male"></i>
-                            </span>
+                    <div className="col-md-6 col-sm-6 contact-form pad-form">
+                        <div className="form-group label-floating is-empty">
                             <input 
                                 type="text" 
-                                required="" 
-                                value={lastName} 
-                                onChange={(e)=>this.setState({lastName : e.target.value})} 
-                                placeholder="Nom"
-                                />
-                            <div className="validation"></div>
-                        </div> 
-        
-                        <div className="form-group">
-                            <p>téléphone<span>*</span></p>	
-                            <span className="icon-case">
-                                <i className="fa fa-phone"></i>
-                            </span>
-                            <input 
-                                type="number" 
-                                value={tel} 
-                                onChange={(e)=>this.setState({tel : e.target.value})} placeholder="Numéro de téléphone"
+                                name="firstname" className="form-control" 
+                                placeholder="Prénom"
+                                value={firstName}
+                                onChange={(e)=>this.setState({firstName:e.target.value})}
                             />
-                            <div className="validation"></div>
                         </div>
-        
+                    </div>
+
+                    <div className="col-md-6 col-sm-6 contact-form pad-form">
+                        <div className="form-group label-floating is-empty">
+                            <input 
+                                type="text" 
+                                name="lastname" className="form-control" 
+                                placeholder="Nom"
+                                value={lastName}
+                                onChange={(e)=>this.setState({lastName:e.target.value})}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="col-md-6 col-sm-6 contact-form">
                         <div className="form-group">
-                            <p>Fin <span>*</span></p>
-                            <span className="icon-case">
-                                <i className="fas fa-calendar-alt"></i>
-                            </span>
+                            <label>Début</label>
                             <input 
                                 type="date" 
-                                value={endDate} 
-                                onChange={(e)=>this.setState({endDate : e.target.value})} 
-                                placeholder="date de fin" 
+                                className="form-control label-floating is-empty" name="startDate"
+                                value={startDate}
+                                onChange={(e)=>this.setState({startDate:e.target.value})}
                             />
-                            <div className="validation"></div>
                         </div>
-                
+                    </div>
+
+                    <div className="col-md-6 col-sm-6 contact-form">
                         <div className="form-group">
-                            <p>Message <span>*</span></p>
-                            <span className="icon-case">
-                                <i className="fa fa-comments-o"></i>
-                            </span>
-                            <textarea 
-                                value={message} 
-                                onChange={(e)=>this.setState({message : e.target.value})}  
-                                placeholder="Ajouter un message a votre réservation" 
-                                rows="4" >
-                            </textarea>
-                            <div className="validation"></div>
-                        </div>	
+                            <label>Fin</label>
+                            <input 
+                                type="date" 
+                                className="form-control label-floating is-empty" name="date"
+                                value={endDate}
+                                onChange={(e)=>this.setState({endDate:e.target.value})}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="col-md-6 col-sm-6 contact-form pad-form">
+                        <div className="form-group">
+                            <input 
+                                type="email" className="form-control label-floating is-empty" name="email"
+                                placeholder="Email" 
+                                value={mail}
+                                onChange={(e)=>this.setState({mail:e.target.value})}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="col-md-6 col-sm-6 contact-form">
+                        <div className="form-group">
+                            <input 
+                                type="text"
+                                className="form-control label-floating is-empty" name="phone"
+                                placeholder="Téléphone" 
+                                value={tel}
+                                onChange={(e)=>this.setState({tel:e.target.value})}
+                            />
+                        </div>
+                    </div>
+                    <div className="col-md-6 col-sm-6 contact-form">
+                        <div className="form-group">
+                            <label>Adultes</label>
+                            <input 
+                            type="number" 
+                            className="form-control label-floating is-empty" 
+                            name="adultes" 
+                            placeholder="nombre d'adultes'"
+                            value={adults}
+                            onChange={(e)=>this.setState({adults:e.target.value})} 
+                            />
+                        </div>
+                    </div>
+                    
+                    <div className="col-md-6 col-sm-6 contact-form">
+                        <div className="form-group">
+                            <label>Enfants</label>
+                            <input 
+                            type="number" 
+                            className="form-control label-floating is-empty" 
+                            name="enfants" 
+                            placeholder="nombre d'enfants"
+                            value={childrens}
+                            onChange={(e)=>this.setState({childrens:e.target.value})} 
+                            />
+                        </div>
+                    </div>
+
+                    <div className="col-md-12 contact-form">
+                    <div className="form-group label-floating is-empty">
+                        <textarea 
+                        className="form-control" 
+                        name="message" 
+                        rows="5" 
+                        rows="3" 
+                        placeholder="Message"
+                        value={message}
+                        onChange={(e)=>this.setState({message:e.target.value})}
+                        ></textarea>
+                    </div>
+
+                    </div>
+                    <div className="col-md-12 btnpad">
+                    <div className="contacts-btn-pad center">
+                        <button className="btn btn-primary" onClick={this.checkFormIntegrity} >Réserver</button>
+                    </div>
+                    </div>
+                </div>
                 </div>
             </div>
-            <button 
-                onClick={this.checkFormIntegrity} className="bouton-contact">
-                Réserver
-            </button>
         </div>
-    </div>	
+    </section>
     )
   }
 }

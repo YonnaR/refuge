@@ -5,7 +5,7 @@ export default () => {
     <section >
         <h1 className="header-h text-center">À venir:</h1>
         <div id="event">
-            <div  className="bg-color" className="section-padding">
+            <div  className="bg-color section-padding">
                 <div className="container " >
                     <div className="row">
                     <div className="col-xs-12 col-md-6 col-sm-6 text-center">
@@ -13,7 +13,7 @@ export default () => {
                     <div className="col-md-12" style={{paddingBottom:"60px"}}>
                         <div className="item active left">
                         <div className="col-md-6 col-sm-6 left-images ">
-                            <img src="images/restau/langouste.png" className="img-responsive"/>
+                            <img src="images/restau/langouste.png" alt="langouste farci à l'antillaise" className="img-responsive"/>
                         </div>
                         <div className="col-md-6 col-sm-6 content-holder details-text">
                             <div className="">

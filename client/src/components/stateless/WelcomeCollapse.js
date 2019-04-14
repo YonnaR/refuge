@@ -3,7 +3,7 @@ import React from 'react'
 export default () => {
   return (
     <div className="collapse text-left" id="collapseExample">
-        <div className="card">
+        <div className="card border-box">
             <img src="/images/excursion/plage-saint-louis.jpg" className="card-img-top" alt="plage du bourg de saint louis au couché du soleil"></img>
             <div className="card-body">
                 <h4 className=" text-center header-h">Georges et Fortuna vous accueillent au REFUGE Hulman </h4>

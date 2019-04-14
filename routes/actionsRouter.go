@@ -11,7 +11,9 @@ func SyncActionsRoutes(a *echo.Echo) {
 
 	a.GET("/login", actions.LoginActionEndPoint)
 
-	a.POST("/reservation", actions.ReservationActionEndPoint)
+	a.POST("/reservation-gites", actions.ReservationActionEndPoint)
+
+	a.POST("/reservation-restaurant", actions.RestaurantReservationActionEndPoint)
 
 	a.POST("/comment", actions.CommentaryActionEndPoint)
 
