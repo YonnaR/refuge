@@ -2,6 +2,7 @@ package models
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -20,6 +21,7 @@ type RestaurantReservation struct {
 	Mail            string        `bson:"mail" json:"mail" binding:"required"`
 	Tel             int           `bson:"tel" json:"tel" binding:"required"`
 	Couverts        int           `bson:"couverts" json:"couverts" binding:"required"`
+	Hour            string        `bson:"hour" json:"hour" binding:"required"`
 	ReservationDate string        `bson:"reservationDate" json:"reservationDate" binding:"required"`
 	Message         string        `bson:"message" json:"message" binding:"required"`
 	Date            time.Time     `bson:"date" json:"date" binding:"required"`
@@ -31,6 +33,7 @@ type mailRestaurantReservation struct {
 	Mail            string `bson:"mail" json:"mail" binding:"required"`
 	Tel             int    `bson:"tel" json:"tel" binding:"required"`
 	Couverts        int    `bson:"couverts" json:"couverts" binding:"required"`
+	Hour            string `bson:"hour" json:"hour" binding:"required"`
 	ReservationDate string `bson:"reservationDate" json:"reservationDate" binding:"required"`
 	Message         string `bson:"message" json:"message" binding:"required"`
 	Date            string `bson:"date" json:"date" binding:"required"`
@@ -48,13 +51,14 @@ func (res *RestaurantReservation) Send() {
 		Date:            res.Date.Format(TimeLayout),
 		ReservationDate: res.ReservationDate,
 	}
+	fmt.Println(mRes)
 	res.sendAdmin(mRes)
 	res.sendUser(mRes)
 }
 
 func (res *RestaurantReservation) sendAdmin(data mailRestaurantReservation) {
 	//Get html file
-	t, err := ioutil.ReadFile("templates/admin/reservation.html")
+	t, err := ioutil.ReadFile("templates/admin/restaurant-reservation.html")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -84,7 +88,7 @@ func (res *RestaurantReservation) sendAdmin(data mailRestaurantReservation) {
 
 func (res *RestaurantReservation) sendUser(data mailRestaurantReservation) {
 	//Get html file
-	t, err := ioutil.ReadFile("templates/user/reservation.html")
+	t, err := ioutil.ReadFile("templates/user/restaurant-reservation.html")
 	if err != nil {
 		panic(err.Error())
 	}

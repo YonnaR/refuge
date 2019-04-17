@@ -77,8 +77,7 @@ export default class componentName extends Component {
     handleForm=()=>{
 
         /* Parse data from input */
-        let data = ()=>{
-            return {
+        let data = {
                 "firstName":this.state.firstName,
                 "lastName":this.state.lastName,
                 "mail":this.state.mail,
@@ -88,8 +87,8 @@ export default class componentName extends Component {
                 "hour":this.state.hour,
                 "reservationDate":this.state.date,
             }
-        }
-
+        
+        console.log(data)
         /* Post data */
         Axios.post("/reservation-restaurant",data)
         .catch((error)=>{

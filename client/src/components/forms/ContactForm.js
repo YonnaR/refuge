@@ -67,7 +67,7 @@ export default class ContactForm extends Component {
     .then((response)=>{
       console.log(response)
         this.setState({
-          successMsg:response.data,
+          successMsg:"Message envoyé avec succès.",
           modalVis:false,
         })
     })
@@ -101,7 +101,6 @@ export default class ContactForm extends Component {
   }
 
   render() {
-    console.log(this)
     const { name, tel, subject, message, from, successMsg, errMsg, modalVis } = this.state;
     return (
       <div className="contact1">

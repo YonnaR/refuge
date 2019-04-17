@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"fmt"
 	"refuge/models"
 	"time"
 
@@ -34,6 +35,7 @@ func RestaurantReservationActionEndPoint(c echo.Context) error {
 	if err := c.Bind(&r); err != nil {
 		return c.String(200, " error : "+err.Error())
 	}
+	fmt.Println(r)
 	if err := Dao.InsertRestaurantReservation(r); err != nil {
 		return c.String(200, " error : "+err.Error())
 	}

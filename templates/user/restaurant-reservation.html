@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        .citation{
+            font-style: italic;
+            background-color: rgb(163, 155, 155 , 0.7);
+            text-align: right;
+            padding: 5px;
+        }
+        .container{
+            padding: 25px;
+            background-color: bisque;
+            font-size: 130%;
+        }
+        .banner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center
+        }
+        img{
+            text-align: center;
+            margin: auto; 
+        }
+        h1{
+            font-family: 'Calibri';
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            margin: 25px;
+        }
+        p{
+            font-family: 'Calibri';
+
+        }
+        .link-div{
+            margin: auto;
+            text-align: right;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+        }
+        .button{
+            text-align: center;
+            border: 1px solid grey;
+            border-radius: 6px;
+            background-color: mediumblue;
+            font-weight: bold;
+            padding: 5px;
+            color: white;
+        }
+        .button label{
+            text-decoration: none;
+            color: white;
+        }
+        small{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <br>
+        <br>
+        <div class="banner">
+            <img src="https://refugehulman.com/img/logo.png" alt="Logo">
+        </div>
+        <div>
+            <h1>Merci pour votre réservation {{.FirstName}} {{.LastName}}</h1>
+            <p>
+                Vous avez fait une demande de réservation pour une table sur le site <a href="http://www.refugehulman.com/">www.refugehulman.com</a> <strong>Le {{.Date}}</strong> pour {{.Couverts}} personne(s) le {{.Hour}}.
+            </p>
+            <p>Le demande a été éffectuée pour le {{.ReservationDate}}</p>
+            <p>Récapitulatif du message:</p>
+            <p class="citation">{{.Message}}</p>
+            <p>Nous sommes toujours joignable au <strong>+590590970502</strong> pour toute information complémentaire</p>
+            <div class="link-div">
+                <a href="http://www.refugehulman.com/" class="button">
+                    <label>Voir le site</label>
+                </a>
+            </div>
+            <p>Merci pour la confiance que vous nous portez et a très bientot sur notre petite île paradisiaque.</p>
+            <br>
+            <br>
+            <small>Ce message a été généré automatiquement avec beaucoup d'amour. Merci de ne pas y répondre.</small>
+        </div>
+    </div>
+</body>
+</html>
