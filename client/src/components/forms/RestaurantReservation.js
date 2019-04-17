@@ -87,8 +87,6 @@ export default class componentName extends Component {
                 "hour":this.state.hour,
                 "reservationDate":this.state.date,
             }
-        
-        console.log(data)
         /* Post data */
         Axios.post("/reservation-restaurant",data)
         .catch((error)=>{

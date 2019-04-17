@@ -2,7 +2,6 @@ package models
 
 import (
 	"bytes"
-	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -46,12 +45,12 @@ func (res *RestaurantReservation) Send() {
 		LastName:        res.LastName,
 		Couverts:        res.Couverts,
 		Mail:            res.Mail,
+		Hour:            res.Hour,
 		Message:         res.Message,
 		Tel:             res.Tel,
 		Date:            res.Date.Format(TimeLayout),
 		ReservationDate: res.ReservationDate,
 	}
-	fmt.Println(mRes)
 	res.sendAdmin(mRes)
 	res.sendUser(mRes)
 }
