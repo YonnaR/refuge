@@ -40,7 +40,7 @@ func main() {
 
 	/* middleware */
 	e.Use(middleware.Logger())
-	e.Pre(middleware.HTTPSWWWRedirect())
+	e.Pre(middleware.HTTPSRedirect())
 	//e.Use(middleware.Secure())
 	//e.Use(middleware.Gzip())
 	/* Bind routes */
@@ -48,24 +48,17 @@ func main() {
 
 	/* If prod is true in .env file */
 	if os.Getenv("prod") == "true" {
-
 		/* dns autorisation */
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "refugehulman.com")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "refugehulman.com", "localhost")
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
-
 		/* Http server */
 		go func(c *echo.Echo) {
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
-
 		/* Https server */
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
 	} else {
-
-		/* loger */
-		e.Use(middleware.Logger())
-
 		e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 	}
 
