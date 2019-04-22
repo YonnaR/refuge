@@ -38,11 +38,13 @@ func main() {
 	/* App instance */
 	e := echo.New()
 
-	/* middleware */
-	e.Use(middleware.Logger())
-	//
 	/* Bind routes */
 	routes.SetRoutes(e)
+	e.Pre(middleware.HTTPSWWWRedirect())
+	e.Use(middleware.Recover())
+	e.Use(middleware.Logger())
+	e.Use(middleware.Secure())
+	e.Use(middleware.Gzip())
 
 	/* If prod is true in .env file */
 	if os.Getenv("prod") == "true" {
@@ -50,12 +52,6 @@ func main() {
 		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "localhost")
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
-
-		e.Pre(middleware.HTTPSWWWRedirect())
-		e.Use(middleware.Recover())
-		e.Use(middleware.Logger())
-		e.Use(middleware.Secure())
-		e.Use(middleware.Gzip())
 
 		/* Http server */
 		go func(c *echo.Echo) {
