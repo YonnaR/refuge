@@ -41,7 +41,8 @@ func main() {
 	/* middleware */
 	e.Use(middleware.Logger())
 	e.Pre(middleware.HTTPSWWWRedirect())
-	e.Use(middleware.Gzip())
+	//e.Use(middleware.Secure())
+	//e.Use(middleware.Gzip())
 	/* Bind routes */
 	routes.SetRoutes(e)
 
