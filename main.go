@@ -59,14 +59,9 @@ func main() {
 
 		/* Http server */
 		go func(c *echo.Echo) {
-			/* https redirection */
-			e.Pre(middleware.HTTPSWWWRedirect())
 
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
-
-		/* https redirection */
-		e.Pre(middleware.HTTPSWWWRedirect())
 
 		/* Https server */
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
