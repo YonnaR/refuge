@@ -47,9 +47,13 @@ func main() {
 	/* If prod is true in .env file */
 	if os.Getenv("prod") == "true" {
 		/* dns autorisation */
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "refugehulman.com", "localhost")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "localhost")
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
+
+		e.Use(middleware.Recover())
+		e.Use(middleware.Logger())
+
 		/* Http server */
 		go func(c *echo.Echo) {
 			e.Pre(middleware.HTTPSRedirect())
