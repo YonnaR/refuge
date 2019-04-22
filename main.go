@@ -40,7 +40,9 @@ func main() {
 
 	/* loger */
 	e.Use(middleware.Logger())
-
+	e.Pre(middleware.HTTPSWWWRedirect())
+	e.Use(middleware.Secure())
+	e.Use(middleware.Gzip())
 	/* Bind routes */
 	routes.SetRoutes(e)
 
@@ -54,15 +56,8 @@ func main() {
 
 		/* Http server */
 		go func(c *echo.Echo) {
-			e.Pre(middleware.HTTPSWWWRedirect())
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
-
-		e.Pre(middleware.HTTPSWWWRedirect())
-		e.Use(middleware.Secure())
-		e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
-			Level: 5,
-		}))
 
 		/* Https server */
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
