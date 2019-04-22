@@ -38,10 +38,9 @@ func main() {
 	/* App instance */
 	e := echo.New()
 
-	/* loger */
+	/* middleware */
 	e.Use(middleware.Logger())
 	e.Pre(middleware.HTTPSWWWRedirect())
-	e.Use(middleware.Secure())
 	e.Use(middleware.Gzip())
 	/* Bind routes */
 	routes.SetRoutes(e)
