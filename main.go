@@ -51,17 +51,17 @@ func main() {
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
+		e.Pre(middleware.HTTPSWWWRedirect())
 		e.Use(middleware.Recover())
 		e.Use(middleware.Logger())
+		e.Use(middleware.Secure())
+		e.Use(middleware.Gzip())
 
 		/* Http server */
 		go func(c *echo.Echo) {
-			e.Pre(middleware.HTTPSRedirect())
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
 		/* Https server */
-		e.Use(middleware.Secure())
-		e.Use(middleware.Gzip())
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
 	} else {
 		e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
