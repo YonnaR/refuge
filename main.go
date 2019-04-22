@@ -48,7 +48,7 @@ func main() {
 	if os.Getenv("prod") == "true" {
 
 		/* dns autorisation */
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "localhot")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "www.refugehulman.com")
 
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
@@ -63,7 +63,10 @@ func main() {
 
 		/* https redirection */
 		e.Pre(middleware.HTTPSWWWRedirect())
-
+		e.Use(middleware.Secure())
+		e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
+			Level: 5,
+		}))
 		/* Https server */
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
 	} else {

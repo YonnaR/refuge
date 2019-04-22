@@ -16,7 +16,7 @@ export default () => {
         Tous les services sont optimisés afin que vous passiez le meilleur moment possible. Un cadre calme et agrèable, une atmosphère chaleureuse,
         une table de qualité, tout cela servi avec une constante bonne humeur. Alors n'attendez plus et venez nous voir, nous vous attendons.</p>  
         <p className="header-p">
-        Le domaine des Gîtes de Refuge Hulman situé entre La flore locale et la rivière des sources, vous accueille sur un vaste site paysager de près de 3 hectares. Ce gîte de style traditionnel antillais mais néanmoins chaleureux vous offre de vaste et belle pièce de vie, confortable et baignée de lumière, conviviale avec son piscine, ainsi qu’une belle terrasse donnant sur de vue a couper le souffle, parfait pour des moments chaleureux en famille ou entre amis Toute l'année. Parking dans la propriété, Gîte indépendant sur un ensemble de gîtes, et surtout, Découvertes touristiques inégalées au coeur de la campagne Marie-Galantaise .</p>
+        Le domaine des Gîtes de Refuge Hulman situé entre La flore locale et la rivière des sources, vous accueille sur un vaste site paysager de près de 3 hectares. Ce gîte de style traditionnel antillais mais néanmoins chaleureux vous offre de vaste et belle pièce de vie, confortable et baignée de lumière, conviviale avec sa piscine, ainsi qu’une belle terrasse donnant sur de vue a couper le souffle, parfait pour des moments chaleureux en famille ou entre amis Toute l'année. Parking dans la propriété, Gîte indépendant sur un ensemble de gîtes, et surtout, Découvertes touristiques inégalées au coeur de la campagne Marie-Galantaise .</p>
         <br/>
         <a href={tarif} rel="noopener noreferrer" target="_blank"> Voir nos tarifs</a>
       </div>
@@ -62,7 +62,7 @@ export default () => {
             <ul className="details-list">
               <li>Capacité de 20 Couchages</li>
               <li>Capacité de 50 convives pour les repas</li>
-              <li>Surface de près de trois hectare</li>
+              <li>Surface de trois mille mètres carrés</li>
               <li>6 chambres</li>
               <li>6 salles de bain / 7 WC</li>
               <li>Dans un cadre magnifique à la campagne</li>

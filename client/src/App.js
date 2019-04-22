@@ -3,8 +3,6 @@ import Router from './Router';
 
 class App extends Component {
   componentDidMount(){
-
-
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
       
     } else {
