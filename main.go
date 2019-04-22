@@ -48,15 +48,14 @@ func main() {
 	if os.Getenv("prod") == "true" {
 
 		/* dns autorisation */
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "www.refugehulman.com")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com", "refugehulman.com")
 
-		e.Use(middleware.Secure())
-		e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
-			Level: 5,
-		}))
 		/* cache file */
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
+		e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
+			Level: 5,
+		}))
 		/* Http server */
 		go func(c *echo.Echo) {
 
