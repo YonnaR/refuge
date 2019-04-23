@@ -53,7 +53,7 @@ func main() {
 		// dns autorisation
 		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com")
 		// cache file
-		e.AutoTLSManager.Cache = autocert.DirCache("./.cache")
+		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
 		// Http server
 		go func(c *echo.Echo) {
