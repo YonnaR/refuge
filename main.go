@@ -39,7 +39,7 @@ func main() {
 	e := echo.New()
 
 	/* loger */
-	e.Use(middleware.Logger())
+	e.Use(middleware.LoggerWithConfig(middleware.DefaultLoggerConfig))
 	e.Use(middleware.Recover())
 	e.Use(middleware.Secure())
 	e.Use(middleware.Gzip())
@@ -51,20 +51,17 @@ func main() {
 	if os.Getenv("prod") == "true" {
 
 		// dns autorisation
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "www.refugehulman.com")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com")
 		// cache file
 		e.AutoTLSManager.Cache = autocert.DirCache("./.cache")
 
 		// Http server
 		go func(c *echo.Echo) {
-			// https redirection
-			e.Pre(middleware.HTTPSWWWRedirect())
-
+			/* 			// https redirection
+			   			e.Pre(middleware.HTTPSWWWRedirect())
+			*/
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
-
-		// https redirection
-		e.Pre(middleware.HTTPSWWWRedirect())
 
 		// Https server
 		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
