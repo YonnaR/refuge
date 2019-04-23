@@ -1,7 +1,6 @@
 package main
 
 import (
-	"net/http"
 	"os"
 	"refuge/controllers"
 	"refuge/controllers/actions"
@@ -33,12 +32,6 @@ func connectDb() {
 	actions.Dao = &dbDao
 }
 
-func redirect(h http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		println("middleware")
-		h.ServeHTTP(w, r)
-	})
-}
 func main() {
 
 	/* App instance */
