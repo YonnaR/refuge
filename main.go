@@ -51,7 +51,7 @@ func main() {
 	if os.Getenv("prod") == "true" {
 
 		// dns autorisation
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com")
 		// cache file
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
