@@ -15,6 +15,6 @@ func SetRoutes(a *echo.Echo) {
 	api.SyncReservationAPI(a)
 	api.SyncUserAPI(a)
 	SyncActionsRoutes(a)
-	a.Static("/*", "/client/build")
+	a.Static("/", "/client/build")
 
 }
