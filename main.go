@@ -51,15 +51,14 @@ func main() {
 	if os.Getenv("prod") == "true" {
 
 		// dns autorisation
-		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com")
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "www.refugehulman.com")
 		// cache file
 		e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
 		// Http server
 		go func(c *echo.Echo) {
-			/* 			// https redirection
-			   			e.Pre(middleware.HTTPSWWWRedirect())
-			*/
+			// https redirection
+			e.Use(middleware.HTTPSRedirect())
 			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
 		}(e)
 
