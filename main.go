@@ -11,6 +11,7 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	"golang.org/x/crypto/acme/autocert"
 )
 
 var (
@@ -39,38 +40,37 @@ func main() {
 
 	/* loger */
 	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	e.Use(middleware.Secure())
+	e.Use(middleware.Gzip())
 
 	/* Bind routes */
 	routes.SetRoutes(e)
-	/*
-		//If prod is true in .env file
-		if os.Getenv("prod") == "true" {
 
-			// dns autorisation
-			e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("www.refugehulman.com")
-			e.AutoTLSManager.HTTPHandler = redirect
-			// cache file
-			e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
+	//If prod is true in .env file
+	if os.Getenv("prod") == "true" {
 
-			// Http server
-			go func(c *echo.Echo) {
-				// https redirection
-				e.Pre(middleware.HTTPSWWWRedirect())
+		// dns autorisation
+		e.AutoTLSManager.HostPolicy = autocert.HostWhitelist("refugehulman.com", "www.refugehulman.com")
+		// cache file
+		e.AutoTLSManager.Cache = autocert.DirCache("./.cache")
 
-				e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
-			}(e)
-
+		// Http server
+		go func(c *echo.Echo) {
 			// https redirection
 			e.Pre(middleware.HTTPSWWWRedirect())
 
-			// Https server
-			e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
-		} else { */
+			e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
+		}(e)
 
-	/* loger */
-	e.Use(middleware.Logger())
+		// https redirection
+		e.Pre(middleware.HTTPSWWWRedirect())
 
-	e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
-	//}
+		// Https server
+		e.Logger.Fatal(e.StartAutoTLS(os.Getenv("HTTPS")))
+	} else {
+
+		e.Logger.Fatal(e.Start(os.Getenv("HTTP_PORT")))
+	}
 
 }
