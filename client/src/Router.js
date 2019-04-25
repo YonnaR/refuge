@@ -14,7 +14,7 @@ import GiteView from './Views/GiteView';
 export default function(){
     return(
         <Router>
-            <Analytics id="UA-135019758-1" debug>
+            <Analytics id="UA-135019758-1" debug={false}>
                 <Navbar/>
                 <Switch className="container-fluid">
                     <Route exact path="/" component={HomeView}/>
